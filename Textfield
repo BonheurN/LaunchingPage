@@ -1,0 +1,97 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class TextField extends JFrame implements ActionListener {
+
+	JTextField text;
+	JButton button;
+
+	TextField(){
+		
+		
+		
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLayout(new FlowLayout());
+		
+		button = new JButton();
+		button.setText("Search");
+		button.setFocusable(false);
+		button.addActionListener(this);
+		button.setFont(new Font("MVBoli", Font.ITALIC, 15));
+	
+	
+		text = new JTextField();
+		text.setPreferredSize(new Dimension(200,30));
+		text.setForeground(Color.GREEN);
+		text.setBackground(Color.black);
+		
+		add(button);
+		add(text);
+		
+		this.pack();
+		setVisible(true);
+		
+		
+	
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		TextField textfield = new TextField();
+	
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+		if(e.getSource()==button) {
+			 NewWindow window = new NewWindow();
+		}
+		
+		
+	}
+
+}
+
+class NewWindow extends JFrame{
+	
+	JLabel label;
+	ImageIcon icon;
+	
+	NewWindow(){
+		
+		icon = new ImageIcon("C:\\Users\\User HP\\Downloads\\towerblack.jpeg");
+		
+		
+		label = new JLabel("BLACK TOWER");
+		label.setOpaque(true);
+		label.setIcon(icon);
+		label.setBounds(0,0,500,350);
+		label.setHorizontalTextPosition(JLabel.CENTER);
+		label.setVerticalTextPosition(JLabel.TOP);
+		label.setHorizontalAlignment(JLabel.CENTER);
+		label.setVerticalAlignment(JLabel.CENTER);
+		
+		this.setTitle("NB");
+		this.add(label);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(new Dimension(500,400));
+		this.setLayout(null);
+		this.setVisible(true);
+		
+		
+	}
+}
